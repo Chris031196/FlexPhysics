@@ -1,4 +1,3 @@
-
 #include "WindowFactory.h"
 
 namespace WindowFactory {

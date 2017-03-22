@@ -13,16 +13,19 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{0781eb28-2c90-4853-bf72-f511d92b1dd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WindowFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Logger.h">
-      <Filter>Header Files</Filter>
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowFactory.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -30,7 +33,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowFactory.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
