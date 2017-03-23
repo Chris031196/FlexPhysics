@@ -106,7 +106,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE; _CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>glew-2.0.0\include\GL;glfw\include\GLFW;glm;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>glew-2.0.0\include\GL;glfw\include\GLFW;glm;Assimp\include;</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
@@ -153,12 +153,25 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Connection.h" />
+    <ClInclude Include="DrawableElement.h" />
+    <ClInclude Include="FiniteElement.h" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Test1.h" />
     <ClInclude Include="WindowFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="DrawableElement.cpp" />
+    <ClCompile Include="FiniteElement.cpp" />
     <ClCompile Include="FlexPhysics.cpp" />
+    <ClCompile Include="Loader.cpp" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MessageException.h" />
+    <ClCompile Include="Test1.cpp" />
     <ClCompile Include="WindowFactory.cpp" />
   </ItemGroup>
   <ItemGroup>

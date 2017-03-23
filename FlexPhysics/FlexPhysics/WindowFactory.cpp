@@ -4,9 +4,9 @@ namespace WindowFactory {
 	GLFWwindow * CreateWindow(int width, int height, char * name, bool fullscreen)
 	{
 		//initialize glfw
-		Logger::debug("Initializing GLFW...");
+		logger::debug("Initializing GLFW...");
 		if (!glfwInit()) {
-			Logger::error("Failed to initialize GLFW!");
+			logger::error("Failed to initialize GLFW!");
 			return nullptr;
 		}
 
@@ -16,7 +16,7 @@ namespace WindowFactory {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); // Version 3.3
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); //for macs
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // choose gl core profile
-		Logger::debug("GLFW initialization successful!");
+		logger::debug("GLFW initialization successful!");
 
 		//create window
 		GLFWwindow* wnd;
@@ -26,13 +26,13 @@ namespace WindowFactory {
 			wnd = glfwCreateWindow(width, height, name, NULL, NULL);
 
 		//check if creation was successful
-		Logger::debug("Checking window creation...");
+		logger::debug("Checking window creation...");
 		if (wnd == NULL) {
-			Logger::error("Failed to create window!");
+			logger::error("Failed to create window!");
 			glfwTerminate();
 			return nullptr;
 		}
-		Logger::debug("Window creation successful!");
+		logger::debug("Window creation successful!");
 
 		return wnd;
 	}

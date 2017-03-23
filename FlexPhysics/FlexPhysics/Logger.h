@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-namespace Logger {
+namespace logger {
 	enum Level {ERROR = 0, INFO = 1, DEBUG = 2};
 	static Level log_level = Level::ERROR;
 	static char* filepath = "Log.txt";

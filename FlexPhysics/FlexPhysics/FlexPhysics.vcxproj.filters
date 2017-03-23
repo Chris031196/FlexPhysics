@@ -5,16 +5,31 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Util">
       <UniqueIdentifier>{0781eb28-2c90-4853-bf72-f511d92b1dd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{eb8d113a-142d-47bb-9573-11d814d34834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Physics\Source Files">
+      <UniqueIdentifier>{9319478c-3afe-4e18-8d58-359848dad6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test1">
+      <UniqueIdentifier>{c6863e31-4d6b-4e7f-be7e-c680030c8dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test1\Header Files">
+      <UniqueIdentifier>{e00f26e5-47e6-41fb-aab1-b0fe6f60676c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test1\Source Files">
+      <UniqueIdentifier>{5c4f4abf-ebb0-480f-8595-39001b9afd4f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +42,24 @@
     <ClInclude Include="WindowFactory.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="FiniteElement.h">
+      <Filter>Physics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>Physics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test1.h">
+      <Filter>Test1\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableElement.h">
+      <Filter>Physics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FlexPhysics.cpp">
@@ -36,6 +69,27 @@
       <Filter>Util</Filter>
     </ClCompile>
     <ClCompile Include="Logger.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="FiniteElement.cpp">
+      <Filter>Physics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>Physics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test1.cpp">
+      <Filter>Test1\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageException.h">
       <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
