@@ -18,4 +18,5 @@ void FiniteElement::update(float delta_time)
 {
 	m_position += (m_static_force / m_mass) * delta_time;
 	m_position += m_movement * delta_time;
+	m_movement *= 0.99f;
 }

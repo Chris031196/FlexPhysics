@@ -3,8 +3,8 @@
 glm::mat4 proMat;
 glm::mat4 viewMat;
 
-glm::vec3 position = glm::vec3(0, 0, 0);
-float horizontalAngle = glm::radians(90.0f);
+glm::vec3 position = glm::vec3(0, 0, -5);
+float horizontalAngle = glm::radians(0.0f);
 float verticalAngle = 0.0f;
 float initialFov = glm::radians(75.0f);
 float speedN = 1.0f;

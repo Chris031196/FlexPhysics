@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="Connection.h" />
     <ClInclude Include="Controls.h" />
+    <ClInclude Include="DrawableConnection.h" />
     <ClInclude Include="DrawableElement.h" />
     <ClInclude Include="FiniteElement.h" />
     <ClInclude Include="Loader.h" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="Connection.cpp" />
     <ClCompile Include="Controls.cpp" />
+    <ClCompile Include="DrawableConnection.cpp" />
     <ClCompile Include="DrawableElement.cpp" />
     <ClCompile Include="FiniteElement.cpp" />
     <ClCompile Include="FlexPhysics.cpp" />

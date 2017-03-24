@@ -66,6 +66,9 @@
     <ClInclude Include="Controls.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="DrawableConnection.h">
+      <Filter>Physics\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FlexPhysics.cpp">
@@ -86,9 +89,6 @@
     <ClCompile Include="Test1.cpp">
       <Filter>Test1\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DrawableElement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Util</Filter>
     </ClCompile>
@@ -100,6 +100,12 @@
     </ClCompile>
     <ClCompile Include="Controls.cpp">
       <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableElement.cpp">
+      <Filter>Physics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableConnection.cpp">
+      <Filter>Physics\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

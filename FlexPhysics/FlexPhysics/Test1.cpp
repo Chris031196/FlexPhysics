@@ -55,10 +55,17 @@ namespace test1 {
 	bool mainLoop()
 	{
 		glPointSize(5.0f);
-		DrawableElement* element1 = new DrawableElement(1.0f, glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
-		DrawableElement* element2 = new DrawableElement(1.0f, glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element1 = new DrawableElement(1.0f, glm::vec3(0.7f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element2 = new DrawableElement(1.0f, glm::vec3(0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element3 = new DrawableElement(1.0f, glm::vec3(-0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element4 = new DrawableElement(1.0f, glm::vec3(-0.7f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 
-		Connection con = Connection(1.0f, 3.0f, 1.0f, element1, element2);
+		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 2.0f, element1, element2, element1->getProgram());
+		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 2.0f, element2, element3, element1->getProgram());
+		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 2.0f, element3, element4, element1->getProgram());
+		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 2.0f, element4, element1, element1->getProgram());
+		DrawableConnection con13 = DrawableConnection(1.5f, 3.0f, 2.0f, element1, element3, element1->getProgram());
+		DrawableConnection con24 = DrawableConnection(1.5f, 3.0f, 2.0f, element2, element4, element1->getProgram());
 
 		GLuint uniform_loc_viewmatrix = glGetUniformLocation(element1->getProgram(), "view_matrix");
 		GLuint uniform_loc_projectionmatrix = glGetUniformLocation(element1->getProgram(), "projection_matrix");
@@ -77,9 +84,24 @@ namespace test1 {
 			glUniformMatrix4fv(uniform_loc_viewmatrix, 1, GL_FALSE, &view[0][0]);
 			glUniformMatrix4fv(uniform_loc_projectionmatrix, 1, GL_FALSE, &projection[0][0]);
 			
-			con.calculateForces(delta_time);
+			con12.calculateForces(delta_time);
+			con23.calculateForces(delta_time);
+			con34.calculateForces(delta_time);
+			con41.calculateForces(delta_time);
+			con13.calculateForces(delta_time);
+			con24.calculateForces(delta_time);
+
 			element1->draw();
 			element2->draw();
+			element3->draw();
+			element4->draw();
+
+			con12.draw();
+			con23.draw();
+			con34.draw();
+			con41.draw();
+			con13.draw();
+			con24.draw();
 
 			glfwSwapBuffers(wnd);
 			glfwPollEvents();
@@ -88,6 +110,9 @@ namespace test1 {
 		glDeleteProgram(element1->getProgram());
 		delete element1;
 		delete element2;
+		delete element3;
+		delete element4;
+
 		glDeleteVertexArrays(1, &vertex_array_id);
 
 		glfwTerminate();

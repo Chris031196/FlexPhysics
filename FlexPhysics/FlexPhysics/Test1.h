@@ -6,7 +6,7 @@
 #include "Logger.h"
 #include "WindowFactory.h"
 #include "DrawableElement.h"
-#include "Connection.h"
+#include "DrawableConnection.h"
 #include "Mesh.h"
 #include "Controls.h"
 
