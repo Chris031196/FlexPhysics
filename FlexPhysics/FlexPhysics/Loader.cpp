@@ -15,7 +15,7 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 		VertexShaderStream.close();
 	}
 	else {
-		printf("Couldn't read Vertex Shader!");
+		logger::error("Couldn't read Vertex Shader!");
 		getchar();
 		return 0;
 	}
@@ -30,7 +30,7 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 		FragmentShaderStream.close();
 	}
 	else {
-		printf("Couldn't read Fragment Shader!");
+		logger::error("Couldn't read Fragment Shader!");
 		getchar();
 		return 0;
 	}
@@ -38,7 +38,7 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 	GLint result = GL_FALSE;
 	int InfoLogLength;
 
-	printf("Compiling Shader: %s\n", vertex_file_path);
+	logger::debug("Compiling Shader: %s\n", vertex_file_path);
 	char const* VertexSourcePointer = VertexShaderCode.c_str();
 	glShaderSource(VertexShaderID, 1, &VertexSourcePointer, NULL);
 	glCompileShader(VertexShaderID);
@@ -48,11 +48,11 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 	if (result != GL_TRUE) {
 		std::vector<char> VertexShaderErrorMessage(InfoLogLength + 1);
 		glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
-		printf("%i\n", result);
+		logger::error("%i\n", result);
 	}
 
 
-	printf("Compiling shader : %s\n", fragment_file_path);
+	logger::debug("Compiling shader : %s\n", fragment_file_path);
 	char const * FragmentSourcePointer = FragmentShaderCode.c_str();
 	glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer, NULL);
 	glCompileShader(FragmentShaderID);
@@ -62,10 +62,10 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 	if (InfoLogLength > 0) {
 		std::vector<char> FragmentShaderErrorMessage(InfoLogLength + 1);
 		glGetShaderInfoLog(FragmentShaderID, InfoLogLength, NULL, &FragmentShaderErrorMessage[0]);
-		printf("%s\n", &FragmentShaderErrorMessage[0]);
+		logger::error("%s\n", &FragmentShaderErrorMessage[0]);
 	}
 
-	printf("Linking program\n");
+	logger::debug("Linking program\n");
 	GLuint ProgramID = glCreateProgram();
 	glAttachShader(ProgramID, VertexShaderID);
 	glAttachShader(ProgramID, FragmentShaderID);
@@ -76,7 +76,7 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 	if (InfoLogLength > 0) {
 		std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
 		glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-		printf("%s\n", &ProgramErrorMessage[0]);
+		logger::error("%s\n", &ProgramErrorMessage[0]);
 	}
 
 
@@ -86,6 +86,7 @@ GLuint loader::LoadShaders(const char * vertex_file_path, const char * fragment_
 	glDeleteShader(VertexShaderID);
 	glDeleteShader(FragmentShaderID);
 
+	logger::info("Loading successful!");
 	return ProgramID;
 }
 
@@ -240,14 +241,13 @@ bool loader::loadOBJ(
 
 	const aiScene* scene = importer.ReadFile(path, aiProcess_SortByPType);
 	if (!scene) {
-		fprintf(stderr, importer.GetErrorString());
-		getchar();
+		logger::error(importer.GetErrorString());
 		return false;
 	}
 
 	unsigned int num = scene->mNumMeshes;
 
-	for (int j = 0; j < num; j++) {
+	for (unsigned int j = 0; j < num; j++) {
 
 		const aiMesh* mesh = scene->mMeshes[j]; // In this simple example code we always use the 1rst mesh (in OBJ files there is often only one anyway)
 
@@ -284,6 +284,6 @@ bool loader::loadOBJ(
 	}
 
 	// The "scene" pointer will be deleted automatically by "importer"
-
+	return true;
 }
 

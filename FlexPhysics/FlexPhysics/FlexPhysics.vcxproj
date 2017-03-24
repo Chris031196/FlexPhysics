@@ -106,13 +106,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE; _CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>glew-2.0.0\include\GL;glfw\include\GLFW;glm;Assimp\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>glew-2.0.0\include\GL;glfw\include\GLFW;glm;AssImp\include;AssImp\code\Debug;</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;glew-2.0.0\lib\Release\x64\glew32.lib;glfw\lib-vc2015\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;glew-2.0.0\lib\Release\x64\glew32.lib;glfw\lib-vc2015\glfw3.lib;opengl32.lib;AssImp\code\Debug\assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connection.h" />
+    <ClInclude Include="Controls.h" />
     <ClInclude Include="DrawableElement.h" />
     <ClInclude Include="FiniteElement.h" />
     <ClInclude Include="Loader.h" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="Controls.cpp" />
     <ClCompile Include="DrawableElement.cpp" />
     <ClCompile Include="FiniteElement.cpp" />
     <ClCompile Include="FlexPhysics.cpp" />
@@ -176,6 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FlexPhysics.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ElementShader.fs" />
+    <None Include="ElementShader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -32,7 +32,17 @@ namespace WindowFactory {
 			glfwTerminate();
 			return nullptr;
 		}
+		glfwMakeContextCurrent(wnd);
 		logger::debug("Window creation successful!");
+
+		//Init GLEW
+		glewExperimental = true;
+		if (glewInit() != GLEW_OK) {
+			fprintf(stderr, "Failed to Init GLEW!");
+			getchar();
+			glfwTerminate();
+			return nullptr;
+		}
 
 		return wnd;
 	}

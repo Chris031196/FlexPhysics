@@ -1,16 +1,3 @@
-﻿  WindowFactory.cpp
-  Test1.cpp
-  MessageException.cpp
-  Mesh.cpp
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\mesh.cpp(12): error C2065: 'ex': undeclared identifier
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\mesh.cpp(12): error C2143: syntax error: missing ';' before 'if'
-  Logger.cpp
-  Loader.cpp
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\loader.cpp(250): warning C4018: '<': signed/unsigned mismatch
-  FlexPhysics.cpp
-  FiniteElement.cpp
-  DrawableElement.cpp
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\drawableelement.cpp(1): fatal error C1083: Cannot open include file: 'stdafx.h': No such file or directory
-  Connection.cpp
-  Generating Code...
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\loader.cpp(288): warning C4715: 'loader::loadOBJ': not all control paths return a value
+﻿  DrawableElement.cpp
+  FlexPhysics.vcxproj -> C:\Users\Chris\Source\Repos\FlexPhysics\FlexPhysics\x64\Debug\FlexPhysics.exe
+  FlexPhysics.vcxproj -> C:\Users\Chris\Source\Repos\FlexPhysics\FlexPhysics\x64\Debug\FlexPhysics.pdb (Full PDB)

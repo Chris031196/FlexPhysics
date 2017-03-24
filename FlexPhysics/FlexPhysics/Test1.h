@@ -5,6 +5,10 @@
 #include "glm\glm.hpp"
 #include "Logger.h"
 #include "WindowFactory.h"
+#include "DrawableElement.h"
+#include "Connection.h"
+#include "Mesh.h"
+#include "Controls.h"
 
 namespace test1 {
 

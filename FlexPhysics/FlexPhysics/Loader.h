@@ -11,6 +11,7 @@
 #include "assimp\Importer.hpp"		// C++ importer interface
 #include "assimp\scene.h"			// Output data structure
 #include "assimp\postprocess.h"		// Post processing flags
+#include "Logger.h"
 
 namespace loader {
 	GLuint LoadShaders(const char* vertex_file_path, const char* fragment_file_path);

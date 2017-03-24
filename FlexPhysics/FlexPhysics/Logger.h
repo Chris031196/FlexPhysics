@@ -5,7 +5,7 @@
 
 namespace logger {
 	enum Level {ERROR = 0, INFO = 1, DEBUG = 2};
-	static Level log_level = Level::ERROR;
+	static Level log_level = Level::DEBUG;
 	static char* filepath = "Log.txt";
 
 	template<class... Args>
