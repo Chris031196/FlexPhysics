@@ -6,6 +6,5 @@ int main(int argc, char* argv[])
 	logger::clear("Logfile");
 	logger::log_level = logger::DEBUG;
 
-
 	return test1::start();
 }

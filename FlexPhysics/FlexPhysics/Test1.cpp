@@ -55,17 +55,17 @@ namespace test1 {
 	bool mainLoop()
 	{
 		glPointSize(5.0f);
-		DrawableElement* element1 = new DrawableElement(1.0f, glm::vec3(0.7f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element1 = new DrawableElement(1.0f, glm::vec3(1.0f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		DrawableElement* element2 = new DrawableElement(1.0f, glm::vec3(0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		DrawableElement* element3 = new DrawableElement(1.0f, glm::vec3(-0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		DrawableElement* element4 = new DrawableElement(1.0f, glm::vec3(-0.7f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 
-		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 2.0f, element1, element2, element1->getProgram());
-		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 2.0f, element2, element3, element1->getProgram());
-		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 2.0f, element3, element4, element1->getProgram());
-		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 2.0f, element4, element1, element1->getProgram());
-		DrawableConnection con13 = DrawableConnection(1.5f, 3.0f, 2.0f, element1, element3, element1->getProgram());
-		DrawableConnection con24 = DrawableConnection(1.5f, 3.0f, 2.0f, element2, element4, element1->getProgram());
+		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 10.0f, element1, element2, element1->getProgram());
+		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 10.0f, element2, element3, element1->getProgram());
+		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 10.0f, element3, element4, element1->getProgram());
+		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 10.0f, element4, element1, element1->getProgram());
+		DrawableConnection con13 = DrawableConnection(1.5f, 3.0f, 10.0f, element1, element3, element1->getProgram());
+		DrawableConnection con24 = DrawableConnection(1.5f, 3.0f, 10.0f, element2, element4, element1->getProgram());
 
 		GLuint uniform_loc_viewmatrix = glGetUniformLocation(element1->getProgram(), "view_matrix");
 		GLuint uniform_loc_projectionmatrix = glGetUniformLocation(element1->getProgram(), "projection_matrix");
