@@ -18,7 +18,7 @@ public:
 	vec3 getMovement() const { return m_movement; };
 
 	void addImpulse(vec3 force);
-	void addStaticForce(vec3 force);
+	void setStaticForce(vec3 force);
 
 	void update(float delta_time);
 	

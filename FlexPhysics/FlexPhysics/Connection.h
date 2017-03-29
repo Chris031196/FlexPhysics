@@ -23,7 +23,7 @@ public:
 protected:
 	float m_length;		// the distance the connection will try to keep between the elements
 	float m_max_length;	// the distance at which the connection will break
-	float m_flexibility;	// the flexibility of the connection (
+	float m_flexibility;	// the flexibility of the connection, 
 
 	//the two elements in the connection
 	FiniteElement* m_element_1;
