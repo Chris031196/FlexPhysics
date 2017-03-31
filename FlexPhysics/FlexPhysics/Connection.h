@@ -18,7 +18,7 @@ public:
 	*	calculates force vectors for the connected elements
 	*	and adds them as impulses to them
 	*/
-	void calculateForces(float deltaTime);
+	void calculateForces();
 
 protected:
 	float m_length;		// the distance the connection will try to keep between the elements

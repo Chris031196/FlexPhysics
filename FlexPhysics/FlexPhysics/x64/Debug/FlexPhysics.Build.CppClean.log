@@ -2,7 +2,7 @@ c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\vc140.
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\vc140.idb
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\connection.obj
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\controls.obj
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\drawableelement.obj
+c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\drawableconnection.obj
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\finiteelement.obj
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.obj
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\loader.obj
@@ -11,18 +11,6 @@ c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\mesh.o
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\messageexception.obj
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\test1.obj
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\windowfactory.obj
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.res
-c:\users\chris\source\repos\flexphysics\flexphysics\x64\debug\flexphysics.pdb
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\cl.command.1.tlog
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\cl.read.1.tlog
 c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\cl.write.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link-cvtres.read.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link-cvtres.write.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link-rc.read.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link-rc.write.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link.command.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link.read.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\link.write.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\rc.command.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\rc.read.1.tlog
-c:\users\chris\source\repos\flexphysics\flexphysics\flexphysics\x64\debug\flexphysics.tlog\rc.write.1.tlog

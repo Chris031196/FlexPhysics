@@ -4,6 +4,7 @@ namespace test1 {
 
 	GLFWwindow* wnd;
 	GLuint vertex_array_id = 0;
+	DrawableElement* element1;
 
 	bool init();
 
@@ -21,6 +22,15 @@ namespace test1 {
 		return true;
 	}
 
+
+	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	{
+		if (key == GLFW_KEY_E && action == GLFW_RELEASE)
+			element1->addImpulse(glm::vec3(-1.0f, 0.0f, 0.0f));
+
+		if (key == GLFW_KEY_Q && action == GLFW_RELEASE)
+			element1->addImpulse(glm::vec3(1.0f, 0.0f, 0.0f));
+	}
 
 	bool init()
 	{
@@ -49,47 +59,55 @@ namespace test1 {
 		glBindVertexArray(cur_vertex_array_id);
 
 		vertex_array_id = cur_vertex_array_id;
+
+		controls::setWindow(wnd);
+		controls::setKeyPressedCallback(key_callback);
 		return true;
 	}
 
 	bool mainLoop()
 	{
 		glPointSize(5.0f);
-		DrawableElement* element1 = new DrawableElement(1.0f, glm::vec3(1.0f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		element1 = new DrawableElement(1.0f, glm::vec3(1.0f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		DrawableElement* element2 = new DrawableElement(1.0f, glm::vec3(0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		DrawableElement* element3 = new DrawableElement(1.0f, glm::vec3(-0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		DrawableElement* element4 = new DrawableElement(1.0f, glm::vec3(-0.7f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 
-		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 1.0f, element1, element2, element1->getProgram());
-		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 1.0f, element2, element3, element1->getProgram());
-		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 1.0f, element3, element4, element1->getProgram());
-		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 1.0f, element4, element1, element1->getProgram());
-		DrawableConnection con13 = DrawableConnection(1.5f, 3.0f, 1.0f, element1, element3, element1->getProgram());
-		DrawableConnection con24 = DrawableConnection(1.5f, 3.0f, 1.0f, element2, element4, element1->getProgram());
+		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 0.5f, element1, element2, element1->getProgram());
+		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 0.5f, element2, element3, element1->getProgram());
+		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 0.5f, element3, element4, element1->getProgram());
+		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 0.5f, element4, element1, element1->getProgram());
+		DrawableConnection con13 = DrawableConnection(1.5f, 3.0f, 0.5f, element1, element3, element1->getProgram());
+		DrawableConnection con24 = DrawableConnection(1.5f, 3.0f, 0.5f, element2, element4, element1->getProgram());
 
 		GLuint uniform_loc_viewmatrix = glGetUniformLocation(element1->getProgram(), "view_matrix");
 		GLuint uniform_loc_projectionmatrix = glGetUniformLocation(element1->getProgram(), "projection_matrix");
 
 		double last_time = glfwGetTime();
 		do {
-			float delta_time = glfwGetTime() - last_time;
+			double delta_time = glfwGetTime() - last_time;
 			last_time = glfwGetTime();
 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			controls::computeMatrices(wnd, delta_time);
+			controls::computeMatrices(delta_time);
 
 			glm::mat4 view = controls::getViewMatrix();
 			glm::mat4 projection = controls::getProjectionMatrix();
 			glUniformMatrix4fv(uniform_loc_viewmatrix, 1, GL_FALSE, &view[0][0]);
 			glUniformMatrix4fv(uniform_loc_projectionmatrix, 1, GL_FALSE, &projection[0][0]);
 			
-			con12.calculateForces(delta_time);
-			con23.calculateForces(delta_time);
-			con34.calculateForces(delta_time);
-			con41.calculateForces(delta_time);
-			con13.calculateForces(delta_time);
-			con24.calculateForces(delta_time);
+			con12.calculateForces();
+			con23.calculateForces();
+			con34.calculateForces();
+			con41.calculateForces();
+			con13.calculateForces();
+			con24.calculateForces();
+
+			element1->update(delta_time);
+			element2->update(delta_time);
+			element3->update(delta_time);
+			element4->update(delta_time);
 
 			element1->draw();
 			element2->draw();
@@ -116,6 +134,7 @@ namespace test1 {
 		glDeleteVertexArrays(1, &vertex_array_id);
 
 		glfwTerminate();
+		getchar();
 		return true;
 	}
 }

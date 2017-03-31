@@ -1,17 +1,1 @@
-[DEBUG]: Initializing...
-[DEBUG]: Creating Window
-[DEBUG]: Initializing GLFW...
-[DEBUG]: GLFW initialization successful!
-[DEBUG]: Checking window creation...
-[DEBUG]: Window creation successful!
-[DEBUG]: Vertex Array at Location 1!
-[DEBUG]: Starting main loop...
-[DEBUG]: Loading Element-Shaders! This should only appear one time!
-[DEBUG]: Compiling Shader: ElementShader.vs
-
-[DEBUG]: Compiling shader : ElementShader.fs
-
-[DEBUG]: Linking program
-
 [INFO]: Loading successful!
-[DEBUG]: Successfully loaded Element-Shaders!

@@ -20,7 +20,7 @@ DrawableElement::DrawableElement(float mass, vec3 position, vec3 movement, vec3 
 	m_mass = mass;
 	m_position = position;
 	m_movement = movement;
-	m_static_force = static_force;
+	m_force = static_force;
 	m_mesh = mesh;
 	if (mesh == NULL) {
 		if (program_ID == 0)

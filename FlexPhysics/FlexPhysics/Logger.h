@@ -34,8 +34,8 @@ namespace logger {
 			std::string s = std::string("[DEBUG]: ") + format + '\n';
 			printf(s.c_str(), std::forward<Args>(args)...);
 
-			FILE* file = fopen(filepath, "a");
-			fprintf(file, s.c_str(), std::forward<Args>(args)...);
+			//FILE* file = fopen(filepath, "a");
+			//fprintf(file, s.c_str(), std::forward<Args>(args)...);
 		}
 	}
 

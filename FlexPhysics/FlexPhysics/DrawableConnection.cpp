@@ -13,7 +13,7 @@ bool DrawableConnection::initVertexBuffer()
 
 	glm::vec3 pos_1 = m_element_1->getPosition();
 	glm::vec3 pos_2 = m_element_2->getPosition();
-	glm::vec3 color = glm::vec3(2 * (glm::distance(pos_1, pos_2) - m_length), 0.1f, 0.1f);
+	glm::vec3 color = glm::vec3(2 * glm::abs((glm::distance(pos_1, pos_2) - m_length)), 0.1f, 0.1f);
 	glm::vec3 data[] = {
 		pos_1,	//position of first element
 		pos_2,	//position of second element
@@ -31,7 +31,7 @@ void DrawableConnection::draw()
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertex_buffer_ID);
 	glm::vec3 pos_1 = m_element_1->getPosition();
 	glm::vec3 pos_2 = m_element_2->getPosition();
-	glm::vec3 color = glm::vec3(2* (glm::distance(pos_1, pos_2) - m_length), 0.1f, 0.1f);
+	glm::vec3 color = glm::vec3(2* glm::abs((glm::distance(pos_1, pos_2) - m_length)), 0.1f, 0.1f);
 	glm::vec3 data[] = {
 		pos_1,	//position of first element
 		pos_2,	//position of second element
