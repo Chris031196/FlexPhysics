@@ -14,10 +14,14 @@ public:
 	FiniteElement(float mass, vec3 position, vec3 movement, vec3 static_force) : m_mass(mass), m_position(position), m_movement(movement), m_force(static_force) {};
 	~FiniteElement();
 
-	vec3 getPosition() const { return m_position; };
-	vec3 getMovement() const { return m_movement; };
+	vec3 getPosition() const { return glm::vec3(m_position); };
+	vec3 getMovement() const { return glm::vec3(m_movement); };
+	vec3 getForce() const { return glm::vec3(m_force); };
+	float getMass() const { return m_mass; };
 
-	void addImpulse(vec3 force);
+	void setMovement(glm::vec3 movement) { m_movement = movement; };
+
+	void addForce(vec3 force);
 	void setStaticForce(vec3 force);
 
 	void update(float delta_time);
