@@ -68,17 +68,36 @@ namespace test1 {
 	bool mainLoop()
 	{
 		glPointSize(5.0f);
-		element1 = new DrawableElement(1.0f, glm::vec3(1.0f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
-		DrawableElement* element2 = new DrawableElement(1.0f, glm::vec3(0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
-		DrawableElement* element3 = new DrawableElement(1.0f, glm::vec3(-0.7f, -0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
-		DrawableElement* element4 = new DrawableElement(1.0f, glm::vec3(-0.7f, 0.7f, 0.0f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		element1 = new DrawableElement(10.0f, glm::vec3(0.51f, 0.51f, 0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element2 = new DrawableElement(1.0f, glm::vec3(0.51f, -0.51f, 0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element3 = new DrawableElement(1.0f, glm::vec3(-0.51f, -0.51f, 0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element4 = new DrawableElement(1.0f, glm::vec3(-0.51f, 0.51f, 0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 
-		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 0.5f, element1, element2, element1->getProgram());
-		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 0.5f, element2, element3, element1->getProgram());
-		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 0.5f, element3, element4, element1->getProgram());
-		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 0.5f, element4, element1, element1->getProgram());
-		DrawableConnection con13 = DrawableConnection(1.5f, 3.0f, 0.5f, element1, element3, element1->getProgram());
-		DrawableConnection con24 = DrawableConnection(1.5f, 3.0f, 0.5f, element2, element4, element1->getProgram());
+		DrawableElement* element5 = new DrawableElement(1.0f, glm::vec3(0.51f, 0.51f, -0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element6 = new DrawableElement(1.0f, glm::vec3(0.51f, -0.51f, -0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element7 = new DrawableElement(1.0f, glm::vec3(-0.51f, -0.51f, -0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+		DrawableElement* element8 = new DrawableElement(1.0f, glm::vec3(-0.51f, 0.51f, -0.51f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
+
+		DrawableConnection con12 = DrawableConnection(1.0f, 3.0f, 1.0f, element1, element2, element1->getProgram());
+		DrawableConnection con23 = DrawableConnection(1.0f, 3.0f, 1.0f, element2, element3, element1->getProgram());
+		DrawableConnection con34 = DrawableConnection(1.0f, 3.0f, 1.0f, element3, element4, element1->getProgram());
+		DrawableConnection con41 = DrawableConnection(1.0f, 3.0f, 1.0f, element4, element1, element1->getProgram());
+
+		DrawableConnection con56 = DrawableConnection(1.0f, 3.0f, 1.0f, element5, element6, element1->getProgram());
+		DrawableConnection con67 = DrawableConnection(1.0f, 3.0f, 1.0f, element6, element7, element1->getProgram());
+		DrawableConnection con78 = DrawableConnection(1.0f, 3.0f, 1.0f, element7, element8, element1->getProgram());
+		DrawableConnection con85 = DrawableConnection(1.0f, 3.0f, 1.0f, element8, element5, element1->getProgram());
+
+		DrawableConnection con15 = DrawableConnection(1.0f, 3.0f, 1.0f, element1, element5, element1->getProgram());
+		DrawableConnection con26 = DrawableConnection(1.0f, 3.0f, 1.0f, element2, element6, element1->getProgram());
+		DrawableConnection con37 = DrawableConnection(1.0f, 3.0f, 1.0f, element3, element7, element1->getProgram());
+		DrawableConnection con48 = DrawableConnection(1.0f, 3.0f, 1.0f, element4, element8, element1->getProgram());
+
+		DrawableConnection con17 = DrawableConnection(1.6f, 3.0f, 1.0f, element1, element7, element1->getProgram());
+		DrawableConnection con28 = DrawableConnection(1.6f, 3.0f, 1.0f, element2, element8, element1->getProgram());
+		DrawableConnection con35 = DrawableConnection(1.6f, 3.0f, 1.0f, element3, element5, element1->getProgram());
+		DrawableConnection con46 = DrawableConnection(1.6f, 3.0f, 1.0f, element4, element6, element1->getProgram());
+		
 
 		GLuint uniform_loc_viewmatrix = glGetUniformLocation(element1->getProgram(), "view_matrix");
 		GLuint uniform_loc_projectionmatrix = glGetUniformLocation(element1->getProgram(), "projection_matrix");
@@ -101,25 +120,61 @@ namespace test1 {
 			con23.calculateForces();
 			con34.calculateForces();
 			con41.calculateForces();
-			con13.calculateForces();
-			con24.calculateForces();
+
+			con56.calculateForces();
+			con67.calculateForces();
+			con78.calculateForces();
+			con85.calculateForces();
+
+			con15.calculateForces();
+			con26.calculateForces();
+			con37.calculateForces();
+			con48.calculateForces();
+
+			con17.calculateForces();
+			con28.calculateForces();
+			con35.calculateForces();
+			con46.calculateForces();
 
 			element1->update(delta_time);
 			element2->update(delta_time);
 			element3->update(delta_time);
 			element4->update(delta_time);
 
+			element5->update(delta_time);
+			element6->update(delta_time);
+			element7->update(delta_time);
+			element8->update(delta_time);
+
 			element1->draw();
 			element2->draw();
 			element3->draw();
 			element4->draw();
 
+			element5->draw();
+			element6->draw();
+			element7->draw();
+			element8->draw();
+
 			con12.draw();
 			con23.draw();
 			con34.draw();
 			con41.draw();
-			con13.draw();
-			con24.draw();
+
+			con56.draw();
+			con67.draw();
+			con78.draw();
+			con85.draw();
+
+			con15.draw();
+			con26.draw();
+			con37.draw();
+			con48.draw();
+
+			con17.draw();
+			con28.draw();
+			con35.draw();
+			con46.draw();
 
 			glfwSwapBuffers(wnd);
 			glfwPollEvents();
