@@ -26,10 +26,10 @@ namespace test1 {
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		if (key == GLFW_KEY_E && action == GLFW_RELEASE)
-			element1->addForce(glm::vec3(-10.0f, 0.0f, 0.0f));
+			element1->addForce(glm::vec3(0.0f, -10.0f, 0.0f));
 
 		if (key == GLFW_KEY_Q && action == GLFW_RELEASE)
-			element1->addForce(glm::vec3(10.0f, 0.0f, 0.0f));
+			element1->addForce(glm::vec3(0.0f, 10.0f, 0.0f));
 	}
 
 	bool init()
@@ -73,19 +73,19 @@ namespace test1 {
 
 		element1 = new DrawableElement(1.0f, glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		elements.push_back(element1);
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+	
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
 
 		for (int i = 0; i < elements.size(); i++) {
 			for (int j = 0; j < elements.size(); j++) {
 				if (j != i) {
-					connections.push_back(DrawableConnection(glm::distance(elements[i]->getPosition(), elements[j]->getPosition()), 3.0f, 1.0f, elements[i], elements[j], elements[0]->getProgram()));
+					connections.push_back(DrawableConnection(glm::distance(elements[i]->getPosition(), elements[j]->getPosition()), 3.0f, 0.1f, elements[i], elements[j], elements[0]->getProgram()));
 				}
 			}
 		}
@@ -108,11 +108,16 @@ namespace test1 {
 			glUniformMatrix4fv(uniform_loc_viewmatrix, 1, GL_FALSE, &view[0][0]);
 			glUniformMatrix4fv(uniform_loc_projectionmatrix, 1, GL_FALSE, &projection[0][0]);
 
+			
 
 			for (int i = 0; i < connections.size(); i++) {
 				connections[i].calculateForces();
 			}
 			for (int i = 0; i < elements.size(); i++) {
+				// -- gravity --
+				elements[i]->addForce(glm::vec3(0.0f, -0.1f, 0.0f));
+				// -- gravity --
+
 				elements[i]->update(delta_time);
 			}
 			for (int i = 0; i < elements.size(); i++) {
