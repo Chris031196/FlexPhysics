@@ -158,10 +158,12 @@
     <ClInclude Include="DrawableConnection.h" />
     <ClInclude Include="DrawableElement.h" />
     <ClInclude Include="FiniteElement.h" />
+    <ClInclude Include="FlexObject.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Test1.h" />
+    <ClInclude Include="Test2.h" />
     <ClInclude Include="WindowFactory.h" />
   </ItemGroup>
   <ItemGroup>
@@ -170,12 +172,14 @@
     <ClCompile Include="DrawableConnection.cpp" />
     <ClCompile Include="DrawableElement.cpp" />
     <ClCompile Include="FiniteElement.cpp" />
+    <ClCompile Include="FlexObject.cpp" />
     <ClCompile Include="FlexPhysics.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MessageException.h" />
     <ClCompile Include="Test1.cpp" />
+    <ClCompile Include="Test2.cpp" />
     <ClCompile Include="WindowFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
