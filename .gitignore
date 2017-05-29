@@ -4,3 +4,9 @@
 /FlexPhysics/FlexPhysics/x64
 /FlexPhysics/x64
 /FlexPhysics/.vs
+*.obj
+*.log
+*.idb
+*.pdb
+*.exe
+*.ilk
