@@ -68,9 +68,12 @@ namespace test2 {
 	bool mainLoop()
 	{
 		glPointSize(5.0f);
-		std::vector<vec3> elements = std::vector<vec3>();
+		std::vector<vec4> vertices;
+		std::vector<vec3> normals;
+		std::vector<vec2> uvs;
+		std::vector<unsigned int> indices;
 
-		elements.push_back(glm::vec3(0.5f, 0.5f, 0.5f));
+		/*elements.push_back(glm::vec3(0.5f, 0.5f, 0.5f));
 		elements.push_back(glm::vec3(0.5f, -0.5f, 0.5f));
 		elements.push_back(glm::vec3(-0.5f, -0.5f, 0.5f));
 		elements.push_back(glm::vec3(-0.5f, 0.5f, 0.5f));
@@ -78,9 +81,16 @@ namespace test2 {
 		elements.push_back(glm::vec3(0.5f, 0.5f, -0.5f));
 		elements.push_back(glm::vec3(0.5f, -0.5f, -0.5f));
 		elements.push_back(glm::vec3(-0.5f, -0.5f, -0.5f));
-		elements.push_back(glm::vec3(-0.5f, 0.5f, -0.5f));
+		elements.push_back(glm::vec3(-0.5f, 0.5f, -0.5f));*/
 
-		FlexObject object = FlexObject(SOLID, 0.7f);
+		loader::loadOBJ("icoSphere.obj", indices, vertices, uvs, normals);
+
+		std::vector<vec3> elements = std::vector<vec3>();
+		for (int i = 0; i < vertices.size(); i++) {
+			elements.push_back(glm::vec3(vertices[i].x, vertices[i].y, vertices[i].z));
+		}
+
+		FlexObject object = FlexObject(SOLID, 0.1f);
 		object.init(elements);
 
 		element1 = object.getElement(0);
@@ -109,8 +119,6 @@ namespace test2 {
 		} while (glfwGetKey(wnd, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(wnd) == GL_FALSE);
 
 		glDeleteProgram(element1->getProgram());
-		
-
 
 		glDeleteVertexArrays(1, &vertex_array_id);
 
