@@ -1,4 +1,4 @@
-#include "Test1.h"
+#include "Test2.h"
 
 int main(int argc, char* argv[])
 {
@@ -6,5 +6,5 @@ int main(int argc, char* argv[])
 	logger::clear("Logfile");
 	logger::log_level = logger::DEBUG;
 
-	return test1::start();
+	return test2::start();
 }

@@ -73,14 +73,14 @@ namespace test1 {
 
 		element1 = new DrawableElement(1.0f, glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL);
 		elements.push_back(element1);
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
 	
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
-		elements.push_back(new DrawableElement(0.6f, glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
+		elements.push_back(new DrawableElement(1.0f, glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(0.0f), glm::vec3(0.0f), NULL));
 
 		for (int i = 0; i < elements.size(); i++) {
 			for (int j = 0; j < elements.size(); j++) {

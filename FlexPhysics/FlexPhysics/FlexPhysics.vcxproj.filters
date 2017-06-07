@@ -69,6 +69,12 @@
     <ClInclude Include="DrawableConnection.h">
       <Filter>Physics\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FlexObject.h">
+      <Filter>Physics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test2.h">
+      <Filter>Test1\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FlexPhysics.cpp">
@@ -106,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="DrawableConnection.cpp">
       <Filter>Physics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlexObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test2.cpp">
+      <Filter>Test1\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
